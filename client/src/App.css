@@ -19,6 +19,7 @@ body {
 #dashboard-container {
   margin-top: 50%;
   margin-bottom: 50%;
+  display: grid;
 }
 
 .dashboard {
@@ -41,17 +42,22 @@ body {
   transform: scale(1.1);
 }
 .right-column {
+  display: grid;
   float: right;
   width: 600px;
-  height: 600px;
+  height: 100%;
   color: white;
   background-color: white;
   border-radius: 10px;
 }
 #viewContainer {
-  height: 600px;
-  width: 600px;
-  background-color: blue;
+  height: 100%;
+  width: 100%;
+  /* background-color: blue; */
+}
+
+.view-header {
+  /* background-color: black; */
 }
 .balance-view {
 }
