@@ -12,7 +12,7 @@ body {
   background-color: black;
   height: 100%;
 }
-
+/* ---------- dashboard ----------- */
 #dashboard-header {
   color: white;
 }
@@ -25,14 +25,17 @@ body {
 .dashboard {
   display: inline-block;
 }
-.icon-text {
-  margin-bottom: 10px;
-}
+/* ------------------------------------------ */
 
+/* ---------- left column ----------- */
 .left-column {
   float: left;
   display: grid;
 }
+.icon-text {
+  margin-bottom: 10px;
+}
+
 .icon {
   display: block;
   transition: all 0.2s ease-in-out;
@@ -41,6 +44,10 @@ body {
 .icon:hover {
   transform: scale(1.1);
 }
+
+/* ------------------------------------------ */
+
+/* ---------- right column ----------- */
 .right-column {
   display: grid;
   float: right;
@@ -51,9 +58,10 @@ body {
   border-radius: 10px;
 }
 #viewContainer {
-  height: 100%;
-  width: 100%;
-  /* background-color: blue; */
+  height: 95%;
+  width: 95%;
+  background-color: blue;
+  margin: auto;
 }
 
 .view-header {
@@ -79,7 +87,4 @@ body {
 
 #expenses-shown {
 }
-
-.inner-expense {
-  display: block;
-}
+/* ------------------------------------------ */
