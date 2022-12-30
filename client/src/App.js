@@ -1,5 +1,5 @@
 import Dashboard from "./components/Pages/Dashboard";
-import BalanceView from "./components/BalanceView";
+import BalanceView from "./components/Viewer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Test from "./components/Pages/Test";

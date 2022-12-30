@@ -1,5 +1,5 @@
 import BalanceIcon from "../icons/BalanceIcon";
-import BalanceView from "../BalanceView";
+import BalanceView from "../Viewer";
 import ExpensesIcon from "../icons/ExpensesIcon";
 import CheckingsIcon from "../icons/CheckingsIcon";
 import SavingsIcon from "../icons/SavingsIcon";
