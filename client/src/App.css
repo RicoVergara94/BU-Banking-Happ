@@ -60,6 +60,23 @@ body {
   transform: translate(-50%, -50%);
   padding: 10px;
 }
+.checkings-view {
+  width: 220px;
+  height: 100px;
+  margin: 10px 0 0 -10px;
+  background: white;
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+  border-radius: 100px / 50px;
+}
+
+#checkings-shown {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
 
 .inner-expense {
   display: block;

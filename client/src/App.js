@@ -1,23 +1,13 @@
-import Dashboard from "./components/Pages/Dashboard";
+import Dashboard from "./components/Dashboard";
 import BalanceView from "./components/Viewer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./App.css";
-import Test from "./components/Pages/Test";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="*"
-          element={
-            <div className="App">
-              <Dashboard />
-            </div>
-          }
-        ></Route>
-      </Routes>
-    </BrowserRouter>
+    <div class="App">
+      <Dashboard />
+    </div>
   );
 }
 
