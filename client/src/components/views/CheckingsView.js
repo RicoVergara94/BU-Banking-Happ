@@ -1,7 +1,7 @@
 export default function CheckingsView() {
   return (
-    <div class="checkings-view">
-      <div id="checkings-shown">Checkings Amount</div>
+    <div class="view" id="checkings-view">
+      <div>Checkings Amount</div>
     </div>
   );
 }
