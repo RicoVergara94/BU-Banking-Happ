@@ -7,6 +7,10 @@ export default function UsernameAndPasswordForm() {
     const password = document.getElementById("password_input");
     console.log(username.value);
     console.log(password.value);
+    fetch("http://localhost:3000", { method: "get" })
+      .then((res) => res.text())
+      .then((data) => console.log(data))
+      .catch((err) => console.log("there was an error"));
   };
   return (
     <form>
@@ -27,14 +31,7 @@ export default function UsernameAndPasswordForm() {
           name="password"
           required
         />
-        <button type="submit" onClick={handleClick}>
-          Login
-        </button>
-        {/* <input type="checkbox" checked="checked"> Remember me    */}
-        <button type="button" class="cancelbtn">
-          {" "}
-          Cancel
-        </button>
+        <input type="button" onClick={handleClick} placeholder="submit"></input>
       </div>
     </form>
   );
