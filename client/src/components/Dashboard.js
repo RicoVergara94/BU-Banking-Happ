@@ -4,6 +4,7 @@ import Viewer from "./Viewer";
 import ExpensesIcon from "./icons/ExpensesIcon";
 import CheckingsIcon from "./icons/CheckingsIcon";
 import SavingsIcon from "./icons/SavingsIcon";
+import UsernameAndPasswordForm from "./UsernameAndPasswordForm";
 
 import { BrowserRouter, Router, Routes, Route, Link } from "react-router-dom";
 
@@ -18,6 +19,7 @@ export default function Dashboard() {
   return (
     <>
       <h1 id="dashboard-header"> Dashboard </h1>
+      <UsernameAndPasswordForm />
       <div id="dashboard-container">
         <div class="dashboard">
           Dashboard
