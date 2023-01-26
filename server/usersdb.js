@@ -38,21 +38,35 @@ const createTables = (newdb) => {
   );
 };
 
-const runQueries = (db) => {
-  db.all(
-    `select username from users where username = 'oscar.vergara1994@gmail.com'`,
-    (err, rows) => {
-      rows.forEach((row) => {
-        console.log(row);
-      });
-    }
-  );
+const runQueries = (db, query) => {
+  db.all(query, (err, rows) => {
+    rows.forEach((row) => {
+      console.log(row);
+    });
+  });
 };
 // createTables(db);
 // runQueries(db);
 
-if (runQueries(db)) {
-  console.log("the value isn't null");
-} else {
-  console.log("value is null");
-}
+// if (runQueries(db)) {
+//   console.log("the value isn't null");
+// } else {
+//   console.log("value is null");
+// }
+
+// if (runFooQueries(db)) {
+//   console.log("the value isn't null");
+// } else {
+//   console.log("value is null");
+// }
+
+const queries = [
+  `
+select username from users where username = 'oscar.vergara1994@gmail.com';
+`,
+  `
+select password from users where password = 'Hello123';
+`,
+];
+
+queries.map((query) => runQueries(db, query));
