@@ -20,8 +20,6 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   // res.json(JSON.parse(req.body));
   const { username, password } = req.body;
-  console.log(username);
-  console.log(password);
 });
 
 app.listen(3000, () => {

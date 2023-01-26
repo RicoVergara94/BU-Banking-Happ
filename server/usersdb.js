@@ -1,58 +1,58 @@
-let sqlite3 = require("sqlite3");
+const e = require("express");
 
-let db;
-new sqlite3.Database("/users.db", sqlite3.OPEN_READWRITE, (err) => {
-  if (err && err.code == "SQLITE_CANTOPEN") {
-    createDatabase();
-    return;
-  } else if (err) {
-    console.log("Getting error " + err);
-    exit(1);
+let sqlite3 = require("sqlite3").verbose();
+
+let db = new sqlite3.Database("./users.db", sqlite3.OPEN_READWRITE, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("success");
   }
-  console.log("we're going to do the query");
-  runQueries(db);
 });
 
-const createDatabase = () => {
-  let newdb = new sqlite3.Database("users.db", (err) => {
-    if (err) {
-      console.log("Getting error " + err);
-      exit(1);
-    }
-    createTables(newdb);
-  });
-};
-// created_at timestamp default current_timestamp
+// const createDatabase = () => {
+//   let newdb = new sqlite3.Database("users.db", (err) => {
+//     if (err) {
+//       console.log("Getting error " + err);
+//       exit(1);
+//     }
+//     createTables(newdb);
+//   });
+// };
+
 const createTables = (newdb) => {
   newdb.exec(
     `
     create table users (
         id int primary key not null,
-        username text not null unique,
+        username text not null,
         password text not null,
         salt text not null
     );
-
     insert into users (id, username, password, salt)
-    values (1, 'oscar.vergara1994@gmail.com', 'Hello123', 'this_is_salt_one'),
-           (2, 'ricardo.vergara1994@gmail.com', 'password123', 'this_is_salt_two'),
-           (3, 'rico.vergara1994@gmail.com', 'gandalfthegrey', 'this_is_salt_three');
-        `,
-    () => {
-      runQueries(newdb);
-    }
+        values (1, 'oscar.vergara1994@gmail.com', 'Hello123', 'saltOne'),
+               (2, 'ricardo.vergara1994@gmail.com', 'password123', 'saltTwo'),
+               (3, 'rico.vergara1994@gmail.com', 'Hakuna', 'saltThree');
+
+    `
   );
 };
 
 const runQueries = (db) => {
-  db.all(`select * from users`, (err, rows) => {
-    if (err) {
-      console.log("error");
-    } else {
+  db.all(
+    `select username from users where username = 'oscar.vergara1994@gmail.com'`,
+    (err, rows) => {
       rows.forEach((row) => {
-        console.log("here");
         console.log(row);
       });
     }
-  });
+  );
 };
+// createTables(db);
+// runQueries(db);
+
+if (runQueries(db)) {
+  console.log("the value isn't null");
+} else {
+  console.log("value is null");
+}
