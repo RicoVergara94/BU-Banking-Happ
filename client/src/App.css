@@ -16,6 +16,13 @@ body {
 #dashboard-header {
   color: white;
 }
+#submit-container {
+  position: relative;
+}
+#submit-button {
+  width: 60px;
+  position: absolute;
+}
 #dashboard-container {
   margin-top: 50%;
   margin-bottom: 50%;

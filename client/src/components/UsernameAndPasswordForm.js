@@ -7,14 +7,23 @@ export default function UsernameAndPasswordForm() {
     const password = document.getElementById("password_input");
     console.log(username.value);
     console.log(password.value);
-    fetch("http://localhost:3000", { method: "get" })
-      .then((res) => res.text())
+    const reqBody = JSON.stringify({
+      username: username.value,
+      password: password.value,
+    });
+    console.log(reqBody);
+    fetch("http://localhost:3000", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: reqBody,
+    })
+      .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log("there was an error"));
   };
   return (
     <form>
-      <div class="container">
+      <div class="submit-container">
         <label>Username : </label>
         <input
           id="username_input"
@@ -31,7 +40,12 @@ export default function UsernameAndPasswordForm() {
           name="password"
           required
         />
-        <input type="button" onClick={handleClick} placeholder="submit"></input>
+        <input
+          type="button"
+          onClick={handleClick}
+          id="submit-button"
+          value="Submit"
+        />
       </div>
     </form>
   );
