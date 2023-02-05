@@ -2,13 +2,17 @@ const e = require("express");
 
 let sqlite3 = require("sqlite3").verbose();
 
-let db = new sqlite3.Database("./users.db", sqlite3.OPEN_READWRITE, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("success");
+export let db = new sqlite3.Database(
+  "./users.db",
+  sqlite3.OPEN_READWRITE,
+  (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("success");
+    }
   }
-});
+);
 
 // const createDatabase = () => {
 //   let newdb = new sqlite3.Database("users.db", (err) => {
@@ -38,7 +42,7 @@ const createTables = (newdb) => {
   );
 };
 
-const runQueries = (db, query) => {
+export const runQueries = (db, query) => {
   db.all(query, (err, rows) => {
     rows.forEach((row) => {
       console.log(row);

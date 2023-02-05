@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { urlencoded } = require("express");
+import { db, runQueries } from "./usersdb";
 
 const app = express();
 
@@ -20,6 +21,15 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   // res.json(JSON.parse(req.body));
   const { username, password } = req.body;
+  const queries = [
+    `
+  select username from users where username = '${username}';
+  `,
+    `
+  select password from users where password = '${password}';
+  `,
+  ];
+  runQueries(db, queries);
 });
 
 app.listen(3000, () => {
